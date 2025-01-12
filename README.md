@@ -30,3 +30,5 @@ Usprkos jednostavnijem pristupu, igra Lovac pruža dinamično i imerzivno iskust
 
 
 
+
+
