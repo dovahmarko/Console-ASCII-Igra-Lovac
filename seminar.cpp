@@ -1,8 +1,9 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <string>
-#include <windows.h> 
+#include <thread> 
+#include <chrono> /
 
 const int BOARD_SIZE = 10;
 
@@ -75,12 +76,10 @@ public:
         case 'a': dy = -1; break;
         case 'd': dy = 1; break;
         default:
-            std::cout << "Nevažeća komanda!\n";
+            std::cout << "Nevažeća komanda za kretanje!\n";
             return;
         }
-        if (x + dx >= 0 && x + dx < BOARD_SIZE && y + dy >= 0 && y + dy < BOARD_SIZE) {
-            Entity::move(dx, dy);
-        }
+        Entity::move(dx, dy);
     }
 
     void shoot(char direction, int distance, Entity& monster1, Entity& monster2, Entity& monster3, Entity& target, bool& monster1Alive, bool& monster2Alive, bool& monster3Alive) {
@@ -144,10 +143,10 @@ public:
         int dx = 0, dy = 0;
 
         switch (direction) {
-        case 0: if (x > 0) dx = -1; break; // Gore
-        case 1: if (x < BOARD_SIZE - 1) dx = 1; break; // Dolje
-        case 2: if (y > 0) dy = -1; break; // Lijevo
-        case 3: if (y < BOARD_SIZE - 1) dy = 1; break; // Desno
+        case 0: if (x > 0) dx = -1; break; 
+        case 1: if (x < BOARD_SIZE - 1) dx = 1; break; 
+        case 2: if (y > 0) dy = -1; break; 
+        case 3: if (y < BOARD_SIZE - 1) dy = 1; break; 
         }
         Entity::move(dx, dy);
     }
@@ -189,7 +188,7 @@ public:
                 player.move(input[0]);
 
                 if (player.getX() == target.getX() && player.getY() == target.getY()) {
-                    std::cout << "Kukavicki ste pobjegli , sram vas bilo!!!!.\n";
+                    std::cout << "Kukavički ste pobjegli, sram vas bilo!!!!.\n";
                     break;
                 }
             }
@@ -202,20 +201,18 @@ public:
                 std::cout << "Nevažeći unos!\n";
             }
 
-
             if (monster1Alive) monster1.moveRandom();
             if (monster2Alive) monster2.moveRandom();
             if (monster3Alive) monster3.moveRandom();
 
             if (!monster1Alive && !monster2Alive && !monster3Alive) {
-                std::cout << "Pobjeda! Sva cudovista su ubijena.\n";
+                std::cout << "Pobjeda! Sva čudovišta su ubijena.\n";
                 break;
             }
 
-            Sleep(1000);
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000)); 
         }
     }
-
 };
 
 int main() {
