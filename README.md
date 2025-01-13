@@ -23,7 +23,7 @@ Program se pokreće uvrštavanjem koda u projekt unutar Visual Studio-a, naime o
 
 Osvrt:
 
-Proces realizacije ideje za Console ASCII igricu, u našem slučaju, nije iziskivao velike napore te se nismo susretali sa osobitim poteškoćama u razvoju našeg projekta; naglasili bi jedino ograničenost ovakvog načina naspram korištenju tkz. game engine-a kao što su Unreal Engine 5 ili Unity. 
+Proces realizacije ideje za Console ASCII igricu, u našem slučaju, nije iziskivao velike napore te se nismo susretali sa osobitim poteškoćama u razvoju našeg projekta; naglasili bi jedino ograničenost ovakvog načina naspram korištenja tkz. game engine-a kao što su Unreal Engine 5 ili Unity. 
 
 Usprkos jednostavnijem pristupu, igra Lovac pruža dinamično i imerzivno iskustvo.
 
